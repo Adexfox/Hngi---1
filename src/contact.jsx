@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import Footer from './footer';
 
 const Contact = () => {
-  const [person, setPerson ] = useState({first_name: '', last_name: '', email: '', message: '' })
+  const [person, setPerson ] = useState({first_name: '', last_name: '', email: '', message: ''})
   const [people, setpeople] = useState([]);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
+   const [checked, setChecked] = useState(true); 
   const handleChange = (e) => {
     const name = e.target.name
     const value = e.target.value
@@ -17,10 +18,16 @@ const Contact = () => {
     if(person.first_name && person.last_name && person.message && person.email){
       const newPerson = {...person, id: new Date().getTime().toString}
       setpeople([...people, newPerson]);
-      setPerson({ first_name: '', last_name: '', email: '', message: '' })
+      setPerson({ first_name: '', last_name: '', email: '', message: ''})
     }
-      setFormErrors(validate(person));
+      setFormErrors(validate(person)); 
       setIsSubmit(true);
+      if(checked){
+        setChecked(false)
+      }
+      else{
+        setChecked(true)
+      }
   }
   useEffect(() => {
     console.log(formErrors);
@@ -39,9 +46,6 @@ const Contact = () => {
     if (!values.message) {
       errors.message = "Please enter your message";
     }
-    if (!values.checkbox) {
-      errors.message = "Please tick the box";
-    }
     if (!values.email) {
       errors.email = "Please enter a valid email address";
     } else if (!regex.test(values.email)) {
@@ -50,16 +54,19 @@ const Contact = () => {
     
     return errors;
   };
+  
   return (
+
     <>
       <main className='contact-page'>
-        {Object.keys(formErrors).length === 0 && isSubmit ? (
-        <p className="ui message success">Form Submitted</p>
-        ) : <p></p> }
         <section className='contact'>
+        
             <h1>Contact Me</h1>
             <p>Hi there, contact me to ask about anything you have in mind</p>
             <form action="/" className='form-control'>
+              {Object.keys(formErrors).length === 0 && isSubmit ? (
+              <h3 className="success-message" onSubmit={handleChange}>Form Submitted</h3>
+              ) : <p></p> }
               <div className="box">
 
                 <div>
@@ -108,13 +115,14 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="Send me a message and I'll reply as soon as posssible..."
                 required ></textarea><br /><p>{formErrors.message}</p><br />
-                <input 
-                type="checkbox" 
-                id="checkbox" 
-                name="checkbox" 
-                value={person.checkbox} 
-                placeholder=''/>
-                <label htmlFor="checkbox" id='checkbox-text'> You agree to providing your data to (name) who may contact you.</label><br /><br /><p>{formErrors.checkbox}</p>
+                <label class="checkbox-contain">
+                  <span> You agree to providing your data to Adexfox who may contact you.</span>
+                  <input type="checkbox"
+                  id="checkbox" 
+                  name="checkbox" 
+                  value={person.checkbox} />
+                  <div class="checkbox-input"></div>
+                </label>
                 <button
                  id='btn__submit'
                  type='submit' 

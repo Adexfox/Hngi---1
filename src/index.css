@@ -273,6 +273,11 @@ main footer h3 {
   position: relative;
   width: 100%;
 }
+.contact-page .contact .form-control p {
+  color: red;
+  margin-top: 0.5rem;
+  margin-bottom: 0.85rem;
+}
 .contact-page .contact input {
   position: relative;
   height: 2.5rem;

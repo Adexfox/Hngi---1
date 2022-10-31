@@ -1,0 +1,128 @@
+$primary-color: #ffff;
+$accent-color: #00B0FF;
+$secondary-color: #EAECF0;
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+html{
+    overflow: hidden;
+}
+@font-face {
+    font-family: identity;
+    src: url(/public/fonts/Satoshi-Medium.otf);
+}
+@font-face {
+    font-family: link;
+    src: url(/public/fonts/Satoshi-Regular.otf);
+}
+main{
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+
+    header{
+        position: relative;
+        width: 60vw;
+        height: 24vh;
+        top: -56%;
+        margin: 0 auto;
+        #profile__img{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto;
+            margin-bottom: 1rem;
+            background-image: url(/public/images/20211118_165343.jpg);
+            background: { 
+            size: cover;
+            position: center;
+            repeat: no-repeat;
+            };
+        }
+        h3{
+            position: relative;
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            margin: 0 auto;
+            font: {
+                family: link;
+                size: 1rem;
+            }
+            
+        }
+    }
+
+    .cta{
+        position: relative;
+        top: 26%;
+        width: 80vw;
+        height: 10vh;
+        margin: 0 auto;
+       
+        .btn{
+            position: relative;
+            background-color: $secondary-color;
+            border: none;
+            width: 80%;
+            height: 48px;
+            margin: 0 auto;
+            margin-left: 10%;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+            border-radius: 8px;
+            z-index: 1;
+            overflow: hidden;
+             font: {
+                family: identity;
+                size: 0.75rem;
+            }
+            &::before{
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: $accent-color;
+            top: 0;
+            left:-100%;
+            z-index: -99;
+            transition: all 0.5s ease-in-out;
+
+      }
+      &:hover::before{
+            left: 0;
+            
+      }
+      &:hover{
+      outline: 1px solid $primary-color;
+      box-shadow: 0 0 5px $primary-color;
+      background-color: $accent-color;
+      color: $primary-color;
+      
+      }
+
+        }
+    }
+    footer{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 20vw;
+        height: 12vh;
+        margin: 0 auto;
+        margin-top: 2rem;
+        .social{
+            position: relative;
+            cursor: pointer;
+            margin-left: 1.25rem;
+            &:hover{
+                color: $accent-color;
+            }
+        }
+    }
+}

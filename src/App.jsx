@@ -1,9 +1,9 @@
-import Profile from './profile'
+import ReactRouterSetup from './reactDom'
 
 function App() {
   return (
     <>
-      <Profile />
+      <ReactRouterSetup />
     </>
   )
 }

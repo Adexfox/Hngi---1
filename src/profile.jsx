@@ -4,6 +4,8 @@ import { FaGithub } from "react-icons/fa";
 import { IconContext } from 'react-icons/lib/esm/iconContext';
 import { RiShareForwardLine } from "react-icons/ri";
 import { BsThreeDots } from "react-icons/bs";
+import Footer from './footer.jsx';
+// import { Link } from 'react-router-dom';
 
 const Profile = () => {
 
@@ -16,8 +18,9 @@ const Profile = () => {
                 return(
                     <div className='cta'>
                         <a href={url} id={id} title ={title}>
-
+                        {/* <Link className='btn' to={url} id={id} title ={title}>  */}
                             <button className='btn'>{ text }</button>
+                        {/* </Link> */}
 
                         </a>
                     </div>
@@ -50,9 +53,7 @@ const Profile = () => {
                 </a>
             </div>
             <footer>
-                <img src="images/zuri.svg" alt="" />
-                <h3>HNG Internship 9 Frontend Task</h3>
-                <img src="images/14g.svg" alt="" />
+                     <Footer />
             </footer>
         </main>
     </IconContext.Provider>

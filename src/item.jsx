@@ -1,11 +1,6 @@
 
 const item =  [
-    // {   
-    //     id: 'profile__img',
-    //     text: 'Adeola Adewale', 
-    //     url: '/'
-    //    
-    // },
+   
     {   
         id: 'twitter',
         text: 'Twitter link', 
@@ -48,17 +43,13 @@ const item =  [
         title: 'The Journey to Design World'
        
     },
-    // {   
-    //     id: 'slack',
-    //     text: '', 
-    //     url: 'https://training.zuri.team/'
-    //    
-    // },
-    // {   
-    //     id: 'github',
-    //     text: '', 
-    //     url: 'https://github.com/Adexfox'
-    //    
-    // }
+    {   
+        id: 'contact',
+        text: 'Contact', 
+        url: '/contact',
+        title: 'Get in touch'
+       
+    }
+   
 ]
 export default item
